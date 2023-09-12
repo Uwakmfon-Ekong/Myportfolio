@@ -6,6 +6,7 @@
 }
 body {
   background-color: #1f242d;
+  padding-bottom: 1rem;
 }
 header {
   position: fixed;
@@ -18,6 +19,23 @@ header {
   padding: 20px 10%;
   z-index: 100;
   align-items: center;
+}
+.hamburger {
+  /* border: 2px solid black; */
+  height: 50px;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  display: none;
+}
+.bars {
+  height: 6px;
+  background: white;
+  width: 35px;
+  border-radius: 8px;
 }
 .logo {
   font-size: 25px;
@@ -47,6 +65,45 @@ nav a.active {
 span {
   color: blueviolet;
 }
+/* media queries */
+@media (max-width: 900px) {
+  .body {
+    width: 100%;
+    height: 100vh;
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    padding: 20px 10%;
+    /* border: 2px solid white; */
+  }
+  .navbar a {
+    padding: 1rem;
+    font-size: 13px;
+    display: none;
+  }
+  .bars {
+    height: 2px;
+    background: white;
+    width: 30px;
+    border-radius: 8px;
+  }
+  .bars:nth-child(1) {
+    margin-top: 20px;
+  }
+  .hamburger {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* end of media queries */
 img {
   border-radius: 50%;
   margin-right: -20px;
@@ -111,7 +168,7 @@ img {
   opacity: 0;
   animation: slideLeft 1s ease forwards;
   /* animation-delay: 1s; */
-   animation-delay: calc(0.2s * var(--i));
+  animation-delay: calc(0.2s * var(--i));
 }
 .socialmedia a:hover {
   background: blueviolet;
@@ -128,7 +185,28 @@ img {
   animation: slideTop 1s ease forwards;
   animation-delay: 1s;
 }
-
+@media (max-width: 600px) {
+  #home {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    margin-top: 25rem;
+  }
+  img {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .homecontent h3 {
+    font-size: 25px;
+    margin-bottom: 1rem;
+  }
+  .homecontent h1 {
+    font-size: 32px;
+  }
+  .homecontent h3:nth-of-type(2) {
+    margin-top:1rem;
+  }
+}
 @keyframes slideRight {
   0% {
     transform: translateX(-100px);
@@ -149,7 +227,7 @@ img {
     opacity: 1;
   }
 }
-@keyframes slideBottom{
+@keyframes slideBottom {
   0% {
     transform: translateY(-100px);
     opacity: 0;
@@ -160,7 +238,7 @@ img {
   }
 }
 
-@keyframes slideLeft{
+@keyframes slideLeft {
   0% {
     transform: translateX(100px);
     opacity: 0;
@@ -171,7 +249,7 @@ img {
   }
 }
 
-@keyframes zoomIn{
+@keyframes zoomIn {
   0% {
     transform: scale(0);
     opacity: 0;
